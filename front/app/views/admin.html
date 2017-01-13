@@ -1,0 +1,33 @@
+<!--****************************** DISPLAYED VIEW *********************-->
+<div class="review-list">
+	<div class="admin-review-container">
+		<!-- loop on each review -->
+		<div ng-repeat="review in reviews" class="single-review" drag="review" dragStyle="columnDrag" drop="review" dropStyle="columnDrop">
+			<div class="single-review-id" ng-click="toggleModal(review)">#{{review.id}}</div>
+			<div class="single-review-title" ng-click="toggleModal(review)">{{review.title}}</div>
+			<div class="single-review-button" ng-click="deleteReview(review)">X</div>
+		</div>
+		<!-- end loop on each review -->
+		<div ng-show="reviews.length == 0" class="empty-message">No review present</div>
+	</div>
+	<button class="admin-button" ng-click="toggleModal()">Add a review</button>
+	<button class="admin-button-right"ng-click="saveOrder()">Save order</button>
+</div>
+<!--********************************************************************-->
+
+<!--****************************** MODAL VIEW *********************-->
+<modal-dialog show='modalShown' class="admin-dialog">
+	<!--TITLE -->
+	<div class="modal-title" ng-show="!currentReview.id">Create a new review</div>
+	<div class="modal-title" ng-show="currentReview.id">Edit a review</div>
+  	<p class="dialog-id" ng-show="currentReview.id">#{{currentReview.id}}</p>
+  	<!--EDITABLE PART -->
+  	<input class="dialog-title" type="text" name="title" ng-model="currentReview.title" placeholder="title">
+  	<textarea class="dialog-content" type="text" name="content" ng-model="currentReview.content" placeholder="content" ></textarea>
+  	<!--VALIDATION -->
+  	<button class="dialog-button" ng-click="saveReview()">Save</button>
+  	<div ng-show="modalError" class="dialog-error">Title is required</div>
+</modal-dialog>
+<!-- ******************************************************************-->
+
+

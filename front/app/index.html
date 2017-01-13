@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/review.css">
+
+  </head>
+  <body ng-app="frontApp">
+
+
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="collapse">
+            <ul class="nav navbar-nav" ng-init="activated=1">
+              <li ng-class="{active: activated==1}"><a ng-click="activated=1" href="/">See reviews</a></li>
+              <li ng-class="{active: activated==2}"><a ng-click="activated=2" ng-href="#/admin">Admin section</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div ng-view="" class="main-container"></div>
+    </div>
+
+    <!-- bower -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbuild -->
+
+    <!-- app -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/directives/directives.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/admin.js"></script>
+    <script src="scripts/services/apiLinker.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

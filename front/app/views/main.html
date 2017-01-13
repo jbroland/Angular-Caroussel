@@ -1,0 +1,23 @@
+<!--****************************** DISPLAYED VIEW *********************-->
+<div class="review-slider" ng-style="{'left': sliderLeftValue}">
+  <!-- loop on each review -->
+  <div ng-repeat="review in reviews" class="single-review" ng-class="{'active': $index==sliderCursor}" ng-click="changeCursor($index)">
+  		<div class="review-clic">
+	      	<div class="single-review-title" id="review-$index">{{review.title}}</div>
+	      	<div class="single-review-content" id="review-$index">{{review.content}}</div>
+	      	<div class="single-review-id" id="review-$index">#{{review.id}}</div>
+      	</div>
+      	<button class="single-review-button review-clic" ng-click="toggleModal(review)">Details</button>
+  </div>
+  <div ng-show="reviews.length == 0" class="empty-message">No review present</div>
+  <!-- end loop on each review -->
+</div>
+<!--********************************************************************-->
+
+<!--****************************** MODAL VIEW *********************-->
+<modal-dialog show='modalShown' class="admin-dialog">
+  	<p class="dialog-title">{{currentReview.title}}</p>
+  	<p class="dialog-content">{{currentReview.content}}</p>
+  	<p class="dialog-id">#{{currentReview.id}}</p>
+</modal-dialog>
+<!-- ******************************************************************-->
